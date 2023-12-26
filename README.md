@@ -35,3 +35,4 @@ This template consists of _nine_ scripts. Each for a specific reason.
 - `format`: Will format the project with Prettier
 - `test-all`: Will run `check-format`, `check-lint`, `check-types` and `build`
 - `prepare`: Will prepare husky
+# Web-NextJS-Java
