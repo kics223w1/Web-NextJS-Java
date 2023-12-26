@@ -14,6 +14,7 @@ const JordanIcon = ({ className, onClick }: Props) => {
       width="24px"
       onClick={onClick}
       className={className}
+      focusable="false"
       fill={hover ? "#747474" : "#111"}
       viewBox="0 0 26 32"
       onMouseEnter={() => setHover(true)}

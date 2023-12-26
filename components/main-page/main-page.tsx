@@ -1,6 +1,7 @@
 import Head from "next/head";
-import JordanIcon from "../../icons/jordan-icon";
 import HeaderMainPage from "./header-main-page";
+import SubHeaderMainPage from "./sub-header-main-page";
+import SubSubHeaderMainPage from "./sub-sub-header-main-page";
 
 const MainPage = () => {
   return (
@@ -10,6 +11,8 @@ const MainPage = () => {
       </Head>
 
       <HeaderMainPage />
+      <SubHeaderMainPage />
+      <SubSubHeaderMainPage />
     </>
   );
 };
