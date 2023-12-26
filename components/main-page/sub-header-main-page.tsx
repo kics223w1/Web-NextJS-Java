@@ -1,7 +1,5 @@
-import { Text } from "@chakra-ui/react";
 import NikeIcon from "../../icons/nike-icon";
 import { useState } from "react";
-import { SearchIcon } from "@chakra-ui/icons";
 
 const SubHeaderMainPage = () => {
   return (
@@ -40,7 +38,7 @@ const SubHeaderSelection = ({ name }: SubHeaderSelectionProps) => {
       onMouseLeave={() => setHover(false)}
     >
       <div className="" />
-      <Text className="font-semibold px-2">{name}</Text>
+      <span className="font-semibold px-2">{name}</span>
       {hover ? (
         <div className="w-full h-[2px] bg-black" />
       ) : (
@@ -55,7 +53,21 @@ const SubHeaderItems = () => {
     <div className="h-full flex items-center gap-4">
       <div className="h-9 w-40 relative">
         <div className="absolute h-9 flex items-center w-10 px-3 hover:bg-[#E4E5E5] rounded-full cursor-pointer">
-          <SearchIcon className="" />
+          {/* <SearchIcon className="" /> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
         </div>
         <input
           className="bg-[#F5F5F5] rounded-3xl h-full w-full border-transparent hover:border-transparent pl-10 hover:bg-[#E4E5E5]"

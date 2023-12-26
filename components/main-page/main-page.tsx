@@ -2,6 +2,7 @@ import Head from "next/head";
 import HeaderMainPage from "./header-main-page";
 import SubHeaderMainPage from "./sub-header-main-page";
 import SubSubHeaderMainPage from "./sub-sub-header-main-page";
+import MiddleMainPage from "./middle-main-page";
 
 const MainPage = () => {
   return (
@@ -13,6 +14,7 @@ const MainPage = () => {
       <HeaderMainPage />
       <SubHeaderMainPage />
       <SubSubHeaderMainPage />
+      <MiddleMainPage />
     </>
   );
 };
