@@ -1,6 +1,6 @@
 const SubSubHeaderMainPage = () => {
   return (
-    <div className="h-20 w-full bg-[#F5F5F5] px-12 flex flex-col items-center py-2">
+    <div className="h-20 w-full bg-[#F5F5F5] px-12 flex flex-col items-center py-2 border-b">
       <span className="font-medium text-base">
         Move, Shop, Customise & Celebrate With Us.
       </span>
