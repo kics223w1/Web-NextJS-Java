@@ -1,3 +1,5 @@
+import BlackButton from "./buttons/black-button";
+
 const MiddleMainPage = () => {
   return (
     <div className="flex flex-col gap-4 items-start md:items-center h-full w-full px-12">
@@ -22,9 +24,7 @@ const MiddleMainPage = () => {
         shoes to supports its runners.
       </span>
 
-      <button className="rounded-2xl bg-black text-center text-white w-20 h-10">
-        Shop
-      </button>
+      <BlackButton text="Shop" onClick={() => {}} />
     </div>
   );
 };
