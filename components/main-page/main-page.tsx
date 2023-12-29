@@ -4,7 +4,8 @@ import SubHeaderMainPage from "./sub-header-main-page";
 import SubSubHeaderMainPage from "./sub-sub-header-main-page";
 import MiddleMainPage from "./middle-main-page";
 import BelowMiddleMainPage from "./below-middle-main-page";
-import CategoryMainPage from "./category-main-page";
+import AlwaysIconMainPage from "./always-icon-main-page";
+import TrendAlertMainPage from "./trend-alert-main-page";
 
 const MainPage = () => {
   return (
@@ -18,7 +19,8 @@ const MainPage = () => {
       <SubSubHeaderMainPage />
       <MiddleMainPage />
       <BelowMiddleMainPage />
-      <CategoryMainPage />
+      <AlwaysIconMainPage />
+      <TrendAlertMainPage />
     </>
   );
 };
