@@ -21,98 +21,88 @@ const imagesName = [
 ];
 
 const CategoryMainPage = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isFirstItem, setIsFirstItem] = useState(true);
+  const [isLastItem, setIsLastItem] = useState(false);
 
-  useEffect(() => {
-    calculateMiddleItem();
-  }, [currentSlide]);
-
-  const nextSlide = () => {
+  const handleScroll = (isLeft: boolean) => {
     const slider = document.getElementById("SliderCategoryMainPage");
     if (slider) {
-      slider.scrollLeft += 200;
-    }
+      slider.scrollLeft += isLeft ? -200 : 200;
 
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % imagesSRC.length);
-  };
+      const isAtLeftEdge = slider.scrollLeft === 0;
+      const isAtRightEdge =
+        slider.scrollLeft + slider.clientWidth === slider.scrollWidth;
 
-  const prevSlide = () => {
-    const slider = document.getElementById("SliderCategoryMainPage");
-    if (slider) {
-      slider.scrollLeft -= 200;
-    }
-
-    setCurrentSlide(
-      (prevSlide) => (prevSlide - 1 + imagesSRC.length) % imagesSRC.length
-    );
-  };
-
-  const calculateMiddleItem = () => {
-    const slider = document.getElementById("SliderCategoryMainPage");
-    if (slider) {
-      const containerWidth = slider.clientWidth;
-      const itemWidth = containerWidth / imagesSRC.length;
-      const middleItemIndex = Math.round(slider.scrollLeft / itemWidth);
-
-      console.log(middleItemIndex);
+      setIsLastItem(isAtRightEdge);
+      setIsFirstItem(isAtLeftEdge);
     }
   };
 
   return (
     <div className="h-full w-full px-12 mt-12">
-      <span className="text-2xl font-normal">Always Iconic</span>
+      <div className="flex items-center justify-between">
+        <span className="text-2xl font-normal">Always Iconic</span>
+        <div className="items-center gap-2 hidden md:flex">
+          <button
+            className={`rounded-full p-3  ${
+              isFirstItem
+                ? "opacity-50 bg-[#F5F5F5]"
+                : "bg-[#E5E5E5] hover:bg-[#CAC9CB]"
+            }`}
+            onClick={() => handleScroll(true)}
+            disabled={isFirstItem}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path
+                strokeLinecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
+          <button
+            className={`rounded-full p-3 ${
+              isLastItem
+                ? "opacity-50 bg-[#F5F5F5]"
+                : "bg-[#E5E5E5] hover:bg-[#CAC9CB]"
+            }`}
+            onClick={() => handleScroll(false)}
+            disabled={isLastItem}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path
+                strokeLinecap="round"
+                stroke-linejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
       <div
-        className="flex items-center gap-2 mt-6 md:overflow-x-hidden overflow-y-hidden overflow-x-visible"
+        className="grid grid-flow-col gap-4 mt-4 md:overflow-x-hidden overflow-y-hidden overflow-x-visible scroll-smooth"
         id="SliderCategoryMainPage"
+        style={{
+          gridAutoColumns: "300px",
+        }}
       >
         {imagesSRC.map((src, index) => {
-          return (
-            <Item
-              key={index}
-              src={src}
-              name={imagesName[index]}
-              buttonName={`${index + 1}/${imagesSRC.length}`}
-            />
-          );
+          return <Item key={index} src={src} name={imagesName[index]} />;
         })}
-        <button
-          className="rounded-full bg-white absolute p-3 left-[6vw]"
-          onClick={prevSlide}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            className="w-4 h-4"
-          >
-            <path
-              strokeLinecap="round"
-              stroke-linejoin="round"
-              d="M15.75 19.5 8.25 12l7.5-7.5"
-            />
-          </svg>
-        </button>
-        <button
-          className="rounded-full bg-white absolute p-3 right-[6vw]"
-          onClick={nextSlide}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            className="w-4 h-4"
-          >
-            <path
-              strokeLinecap="round"
-              stroke-linejoin="round"
-              d="m8.25 4.5 7.5 7.5-7.5 7.5"
-            />
-          </svg>
-        </button>
       </div>
     </div>
   );
@@ -123,16 +113,12 @@ export default CategoryMainPage;
 type ItemProps = {
   src: string;
   name: string;
-  buttonName: string;
 };
 
-const Item = ({ src, name, buttonName }: ItemProps) => {
+const Item = ({ src, name }: ItemProps) => {
   return (
-    <div className="flex-none flex-col relative cursor-pointer duration-1000">
+    <div className="flex-none flex-col relative cursor-pointer">
       <img className="h-[300px] w-[300px]" src={src} />
-      <button className="absolute top-10 right-10 rounded-2xl bg-[#7B7D81] font-normal text-center text-sm text-white w-fit h-8 px-4">
-        {buttonName}
-      </button>
       <span className="font-normal text-base text-gray-400 mt-4">{name}</span>
     </div>
   );
