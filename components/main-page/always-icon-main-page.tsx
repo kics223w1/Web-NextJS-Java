@@ -47,7 +47,7 @@ const AlwaysIconMainPage = () => {
   };
 
   return (
-    <div className="h-full w-full px-12 mt-12">
+    <div className="h-full w-full px-12 mt-16">
       <div className="flex items-center justify-between">
         <span className="text-2xl font-normal">Always Iconic</span>
         <div className="items-center gap-2 hidden md:flex">

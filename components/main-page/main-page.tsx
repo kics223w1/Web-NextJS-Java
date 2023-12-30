@@ -6,6 +6,8 @@ import MiddleMainPage from "./middle-main-page";
 import BelowMiddleMainPage from "./below-middle-main-page";
 import AlwaysIconMainPage from "./always-icon-main-page";
 import TrendAlertMainPage from "./trend-alert-main-page";
+import TheEssentialsMainPage from "./the-essentials-main-page";
+import BelowEssentialMainPage from "./below-essential-main-page";
 
 const MainPage = () => {
   return (
@@ -21,6 +23,8 @@ const MainPage = () => {
       <BelowMiddleMainPage />
       <AlwaysIconMainPage />
       <TrendAlertMainPage />
+      <TheEssentialsMainPage />
+      <BelowEssentialMainPage />
     </>
   );
 };

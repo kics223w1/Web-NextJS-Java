@@ -89,7 +89,7 @@ const TrendAlertMainPage = () => {
   };
 
   return (
-    <div className="h-full w-full px-12 mt-20">
+    <div className="h-full w-full px-12 mt-28">
       <div className="flex items-center justify-between">
         <span className="text-2xl font-normal">Trend Alert</span>
         <div className="items-center gap-2 hidden md:flex">
