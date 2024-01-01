@@ -8,10 +8,11 @@ import AlwaysIconMainPage from "./always-icon-main-page";
 import TrendAlertMainPage from "./trend-alert-main-page";
 import TheEssentialsMainPage from "./the-essentials-main-page";
 import BelowEssentialMainPage from "./below-essential-main-page";
+import Footer from "../footer";
 
 const MainPage = () => {
   return (
-    <>
+    <div className="flex flex-col h-screen w-screen">
       <Head>
         <title>Nike. Just Do It. Nike VN</title>
       </Head>
@@ -25,7 +26,9 @@ const MainPage = () => {
       <TrendAlertMainPage />
       <TheEssentialsMainPage />
       <BelowEssentialMainPage />
-    </>
+
+      <Footer />
+    </div>
   );
 };
 
